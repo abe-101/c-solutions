@@ -7,7 +7,7 @@ function:
 void reverse_name(char *name);
 ```
 
-The unction expects `name` to point to a string containing a first name followed
+The function expects `name` to point to a string containing a first name followed
 by a last name. It modifies the string so that the last name comes first,
 followed by a comma, a space, the first initial and a period. The original
 string may contain extra spaces before the first name, between the first and
