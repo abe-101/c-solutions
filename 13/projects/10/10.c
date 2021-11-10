@@ -15,16 +15,22 @@ int main(void) {
 
 void reverse_name(char *name) {
 
-    char *p = name, initial;
+    char last_name[NAME_LEN], initial[] = {',',' ',' ', '\0'}, *p, *q;
 
+    p = name;
+    q = last_name;
     while (*p == ' ')
+       p++;
+    initial[2] = toupper(*p++);
+    while (*p != ' ')
         p++;
-    initial = *p++;
-
-    while (*p && *p++ != ' ')
-        ;
-
-    while (*p && *p != '\n')
-        putchar(*p++);
-    printf(", %c.\n", initial);
+    while (*p++ != '\0') {
+        if (*p != ' ') {
+            *q = *p;
+            q++;
+        }
+    }
+    last_name[0] = toupper(last_name[0]);
+    name[0] = *q = '\0';
+    strcat(name, (strcat(last_name, initial)));
 }
